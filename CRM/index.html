@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Leonard CRM</title>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+        <!-- Vendors -->
+        <!-- Animate CSS -->
+        <link href="vendors/animate.css/animate.min.css" rel="stylesheet" />
+        <!-- Material Design Icons -->
+        <link href="vendors/material-design-iconic-font/material-design-iconic-font.min.css" rel="stylesheet" />
+        <!-- Malihu Scrollbar -->
+        <link href="vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+        <!-- Bootgrid -->
+        <link href="vendors/jquery.bootgrid/jquery.bootgrid.min.css" rel="stylesheet" />
+        <!-- Sweetalert -->
+        <link href="vendors/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+        <!-- Select 2 -->
+        <link href="vendors/select2/select2.min.css" rel="stylesheet" />
+        <!-- Site CSS -->
+        <link href="lib/css/app-1.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="lib/css/crm.css" />
+    </head>
+    <body ng-controller='mainCtrl'>
+        <!-- Page Loader -->
+        <div id="page-loader">
+            <div class="preloader preloader--xl preloader--light">
+                <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20" />
+                </svg>
+            </div>
+        </div>
+
+        <header id="header">
+            <div class="logo">
+                <a href="#/" class="hidden-xs">
+                    Leonard
+                    <small>CRM</small>
+                </a>
+                <i class="logo__trigger zmdi zmdi-menu" data-mae-action="block-open" data-mae-target="#navigation"></i>
+            </div>
+
+            <ul class="top-menu">
+                <li class="top-menu__profile dropdown">
+                    <a data-toggle="dropdown"><img ng-src="{{user_details.profile_img}}" alt="Profile picture"></a>
+                    <ul class="dropdown-menu pull-right dropdown-menu--icon">
+                        <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
+                        <li><a href="#privacy"><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a></li>
+                        <li><a href="#settings"><i class="zmdi zmdi-settings"></i> Settings</a></li>
+                        <li><a href="#logout"><i class="zmdi zmdi-time-restore"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <section id="main">
+            <aside id="navigation">
+                <div class="navigation__header">
+                    <i class="zmdi zmdi-long-arrow-left" data-mae-action="block-close"></i>
+                </div>
+                <div class="navigation__menu c-overflow mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x" style="position: relative; top: 0px; left: 0px; width: 100%;" dir="ltr">
+                    <ul>
+                        <li ng-class="active_page=='connections' ? 'navigation__active' : '' "><a href="#/"><i class="zmdi zmdi-account-circle"></i> Connections </a></li>
+                        <li class="navigation__sub" ng-class="(active_page=='accepted' || active_page=='pending') ? 'navigation__sub--toggled' : ''">
+                            <a href="" data-mae-action="submenu-toggle"><i class="zmdi zmdi-accounts-add"></i> Invitations </a>
+                            <ul ng-style="(active_page=='accepted' || active_page=='pending') ? {'display':'block'} : {}">
+                                <li ng-class="active_page=='accepted' ? 'navigation__active' : '' "><a href="#accepted">Accepted Invitations</a></li>
+                                <li ng-class="active_page=='pending' ? 'navigation__active' : '' "><a href="#pending">Pending Invitations</a></li>
+                            </ul>
+                        </li>
+                        <li class="navigation__sub" ng-class="(active_page=='connection_invitation' || active_page=='follow_up_message' || active_page=='inmail' || active_page=='tag') ? 'navigation__sub--toggled' : ''">
+                            <a href="" data-mae-action="submenu-toggle"><i class="zmdi zmdi-code"></i> Templates </a>
+                            <ul ng-style="(active_page=='connection_invitation' || active_page=='follow_up_message' || active_page=='inmail' || active_page=='tag') ? {'display':'block'} : {}">
+                                <li ng-class="active_page=='connection_invitation' ? 'navigation__active' : '' "><a href="#connection_invitation">Connection Invitations</a></li>
+                                <li ng-class="active_page=='follow_up_message' ? 'navigation__active' : '' "><a href="#follow_up_message">Follow Up Messages</a></li>
+                                <li ng-class="active_page=='inmail' ? 'navigation__active' : '' "><a href="#inmail">InMails</a></li>
+                                <li ng-class="active_page=='tag' ? 'navigation__active' : '' "><a href="#tag">Tags</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#settings"><i class="zmdi zmdi-settings"></i> Settings </a></li>
+                        <li><a href="#support"><i class="zmdi zmdi-help"></i> Support </a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section ng-view>
+                
+            </section>
+            <footer id="footer">
+                Copyright © 2017 Leonard
+                <ul class="footer__menu">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Reports</a></li>
+                    <li><a href="">Support</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </footer>
+        </section>
+        <!-- Javascript Libraries -->
+        <!-- jQuery -->
+        <script src="vendors/jquery/jquery.min.js"></script>
+        <!-- AngularJS -->
+        <script src="vendors/angular/angular.min.js"></script>
+        <script src="vendors/angular/angular-route.js"></script>
+        <!-- Bootstrap -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- Malihu ScrollBar -->
+        <script src="vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- Bootstrap Notify -->
+        <script src="vendors/remarkable-bootstrap-notify/bootstrap-notify.min.js"></script>
+        <!-- Demo Only -->
+        <script src="lib/js/misc.js"></script>
+        <!-- underscore -->
+        <script src="lib/js/underscore.js"></script>
+        <!-- Bootgrid -->
+        <script src="vendors/jquery.bootgrid/jquery.bootgrid.min.js"></script>
+        <!-- Select 2 -->
+        <script src="vendors/select2/select2.full.min.js"></script>
+        <!-- Sweetalert -->
+        <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
+        <!-- Site Functions & Actions -->
+        <script src="lib/js/app.min.js"></script>
+        <script src="lib/js/mainCtrl.js"></script>
+    </body>
+</html>

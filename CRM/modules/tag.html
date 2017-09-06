@@ -1,0 +1,42 @@
+<div class="">
+    <div class="contacts row contacts_row">
+    <div class="card__body">
+        <div class="table-responsive">
+            <table id="data-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th data-column-id="id" data-identifier="true" data-visible="false"></th>
+                        <th data-column-id="name" class="col-md-10">Name</th>
+                        <th data-column-id="delete" data-sortable="false" data-header-css-class="col-xs-1" data-formatter="deleteButton"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in tags">
+                        <td ng-bind="item.id"></td>
+                        <td ng-bind="item.tag_name"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal--default" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New {{template_type_txt}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" ng-model="title" placeholder="Tag name" spellcheck="false" />
+                    <i class="form-group__bar"></i>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" ng-disabled="title==''" ng-click="saveTag()" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

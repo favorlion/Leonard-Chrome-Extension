@@ -1,0 +1,108 @@
+<div class="leo_container" hidden>
+	<div class="leo_nav">
+		<ul>
+			<li data-tab="connection_invitation">Connect</li>
+			<li data-tab="message" disabled>Message</li>
+			<li data-tab="inmail" disabled>InMail</li>
+			<li data-tab="visit_profiles">Visit</li>
+			<li data-tab="go_to_crm">CRM</li>
+			<!-- <li class="active" data-tab="visit_profiles">Visit Profiles</li>
+			<li data-tab="connection_invitation">Connection Invitation</li>
+			<li data-tab="go_to_crm">Go to CRM</li> -->
+			<!-- <li data-tab="leonard_status">Status</li> -->
+		</ul>
+	</div>
+	<table width="100%" id="visit_profiles">
+		<tr>
+			<td class="pw_center">
+				<div class="hunt_ops">
+					<table width="100%">
+						<tr>
+							<td width="5%"><img src="{{EXT_FOLDER}}images/logo.png" width="50" /></td>
+							<td width="35%" style="margin-top:3px;">
+								<div class="profile_view_text">Stop after <span id="remaining">{{REMAINING_PROFILE_VIEWS}}</span> profile views</div>
+								<div><span>View Premium profiles only : </span><input type="checkbox" id="view_premium_only" /></div>
+							</td>
+							<td width="35%">
+								<div class="range_slider_div"><input type="range" min="1" max="{{REMAINING_PROFILE_VIEWS}}" step="1" value="{{REMAINING_PROFILE_VIEWS}}" id="range_slider" /></div>
+							</td>
+							<td width="25%" style="margin-top:8px;">
+								<a href="javascript:void(0);" id="download_btn" class="green-btn download-btn">Download</a>
+								<a href="javascript:void(0);" hidden class="green-btn continue-btn" >CONTINUE FROM LAST TIME</a><a href="javascript:void(0);" id="start_viewing" class="green-btn" >START</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="hunt_stats">
+					<span class="bot_title">TODAY</span>
+					<span class="bot_label">Visited: </span>
+					<span class="bot_value" id="today_visited">{{VISITED}}</span>
+					<!-- <span class="bot_label">Skipped: </span>
+					<span class="bot_value" id="today_skipped">{{SKIPPED}}</span> -->
+					<span class="bot_label" id="today_remaining">Remaining: </span>
+					<span class="bot_value" id="total_remaining">{{REMAINING_PROFILE_VIEWS}}</span>
+					<span class="bot_seperator"></span>
+					<span class="bot_title">LAST 7 DAYS</span>
+					<span class="bot_label">Visited: </span>
+					<span class="bot_value" id="visited_in_week">{{VISITED_IN_WEEK}}</span>
+					<!-- <span class="bot_label">Skipped: </span>
+					<span class="bot_value" id="skipped_in_week">{{SKIPPED_IN_WEEK}}</span> -->
+					<span class="bot_seperator"></span>
+					<span class="bot_title">THIS MONTH</span>
+					<span class="bot_label">Visited: </span>
+					<span class="bot_value" id="last_thirty_visited">{{TOTAL_VISITED}}</span>
+					<!-- <span class="bot_label">Skipped: </span>
+					<span class="bot_value" id="last_thirty_skipped">{{TOTAL_SKIPPED}}</span> -->
+				</div>
+			</td>
+			<!--td class="pw_right">
+				<div>I don't care what it is.</div>
+			</td-->
+		</tr>
+	</table>
+	<table width="100%" id="connection_invitation">
+		<tr>
+			<td class="pw_center">
+				<div class="hunt_ops">
+					<table width="100%">
+						<tr>
+							<td width="5%"><img src="{{EXT_FOLDER}}images/logo.png" width="50" /></td>
+							<td width="30%" style="margin-top:3px;">
+								<div class="conn_req_text">Stop after <span id="remaining_conn_req">{{REMAINING_CONNECTION_REQUESTS}}</span> connections</div>
+							</td>
+							<td width="50%">
+								<div class="range_slider_div"><input type="range" min="1" max="{{REMAINING_CONNECTION_REQUESTS}}" step="1" value="{{REMAINING_CONNECTION_REQUESTS}}" id="conn_range_slider" /></div>
+							</td>
+							<td width="15%" style="margin-top:8px;">
+								<a href="javascript:void(0);" id="start_sending_conn" class="green-btn">SEND</a>
+							</td>
+						</tr>
+						<tr>
+							<td width="50%">
+								<select id="selInvMes" class="template_selector"><option>Select invitation message</option></select>
+								<a href="{{EXT_FOLDER}}CRM/index.html#/connection_invitation" class="edit_temp_link" target="_blank">edit</a>
+							</td>
+							<td width="50%">
+								<select id="selFollUpMes" class="template_selector"><option>Select follow up message</option></select>
+								<a href="{{EXT_FOLDER}}CRM/index.html#/follow_up_message" class="edit_temp_link" target="_blank">edit</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	$("#range_slider").bind("input",function(){
+		var remval = $(this).val();
+		$("#remaining").text(remval);
+		// local_data.stop_after = parseInt(remval);
+	});
+	$("#conn_range_slider").bind("input",function(){
+		var remval = $(this).val();
+		$("#remaining_conn_req").text(remval);
+		// local_data.stop_after = parseInt(remval);
+	});
+	$("#range_slider, #conn_range_slider").rangeslider({ polyfill: false });
+</script>

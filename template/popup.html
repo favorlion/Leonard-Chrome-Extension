@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/popup.css" type="text/css" />
+		<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="../js/progressbar.min.js"></script>
+		<script type="text/javascript" src="../js/popup.js"></script>
+	</head>
+	<body>
+		<div id="login_popup">
+			<div id="outer_form">
+				<div id="logo_title">
+					<img src="../images/logo.png" width="50"></span>
+				</div>
+				<form id="login_form">
+					<div>
+						<input type="email" id="l_email" name="email" placeholder="Email" autocomplete="off" required />
+					</div>
+					<div>
+						<input type="password" id="l_password" name="password" placeholder="Password" required />
+						<span class="error" style="display: none;">You're email / password might be incorrect!</span>
+					</div>
+					<span class="error_msg"></span>
+					<div class="remember_me_cont">
+						<input type="checkbox" id="remember_me" /><span>Remember me</span>
+					</div>
+					<div>
+						<input type="submit" value="Sign In" id="sign_in_btn" />
+					</div>
+				</form>
+				<div id="footer_cont">
+					<div>
+						<span>Do not have an account?</span>
+						<a href="http://138.197.80.67:1337/signup" target="_blank">Sign Up</a>
+						<!--<span>Do not have an account?</span>
+						<a id="sign_up_anc">Sign Up</a>-->
+					</div>
+					<div>
+						<a href="http://138.197.80.67:1337/forgotpassword/" target="_blank">Forgot password?</a>
+					</div>
+				</div>
+			</div>
+			<div class="close_btn"><img src="../images/close.png" width="20" /></div>
+		</div>
+		<div id="sign_up_popup">
+			<div id="sign_up_outer_form">
+				<div id="logo_title">
+					<img src="../images/logo.png" width="50"></span>
+					<span id="sign_up_form_title">Fill out the details below to register and start using Leonard</span>
+				</div>
+				<form id="sign_up_form">
+					<div>
+						<input type="text" id="firstname" name="firstname" placeholder="Name" autocomplete="off" required />
+					</div>
+					<div>
+						<input type="email" id="email" name="email" placeholder="Email" autocomplete="off" required />
+					</div>
+					<div>
+						<input type="password" id="password" name="password" placeholder="Password" required />
+					</div>
+					<div>
+						<input type="password" id="confirmPass" name="confirmPass" placeholder="Confirm Password" required />
+					</div>
+					<span class="error_msg"></span>
+					<div>
+						<input type="submit" value="Sign Up" id="sign_up_btn" />
+					</div>
+				</form>
+			</div>
+			<div class="close_btn"><img src="../images/close.png" width="20" /></div>
+		</div>
+		<div id="det_popup">
+			<div id="top_bar_opts">
+				<span class="top_links">home</span>
+				<span class="seperator">|</span>
+				<span class="top_links">about</span>
+				<span class="seperator">|</span>
+				<span id="top_version"></span>
+			</div>
+			<div id="logo_title">
+				<img src="../images/logo.png" width="50">
+				<span id="greet_user"></span>
+				<span>What would you like me to do for you today?</span>
+			</div>
+			<span class="error_msg"></span>
+			<div id="controls">
+				<div>
+					<span class="buttons" id="view_all_profiles">VISIT PROFILES</span>
+					<span class="button_desc no_line_height">Visit profiles in current result page,<br />save their details too.</span>
+				</div>
+				<div>
+					<span class="buttons" id="open_sales_nav">SALES NAVIGATOR</span>
+					<span class="button_desc">Open Sales Navigator</span>
+				</div>
+				<div>
+					<span class="buttons" id="export_data">DOWNLOAD DATA</span>
+					<span class="button_desc">Download the viewed profiles.</span>
+				</div>
+				<div>
+					<span class="buttons" id="start_stop">STOP LEONARD</span>
+					<span class="button_desc" id="start_stop_desc">Stop Leonard to view profiles</span>
+				</div>
+				<div>
+					<span class="buttons" id="who_viewed">WHO VIEWED ME</span>
+					<span class="button_desc no_line_height">Leonard opens new tab to show<br />who recently viewed your profile.</span>
+				</div>
+				<div>
+					<span class="buttons" id="open_crm">CRM</span>
+					<span class="button_desc">Open CRM</span>
+				</div>
+				<div>
+					<span class="buttons" id="logout">LOGOUT</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

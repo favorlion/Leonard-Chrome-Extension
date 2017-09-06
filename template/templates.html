@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/templates.css" type="text/css" />
+		<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/FormValidation.js"></script>
+		<script type="text/javascript" src="../js/templates.js"></script>
+	</head>
+	<body>
+		<div id="template_cont" class="table-responsive">
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th width="5%">#</th>
+						<th width="20%">Template name</th>
+						<th width="70%">Template content</th>
+						<th width="5%"></th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTemplateModal">Add template</button>
+		</div>
+		<div class="modal fade" id="addTemplateModal" tabindex="-1" role="dialog" aria-labelledby="addTemplateModal" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="addTemplateModalLabel">New Template</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form id="addTempForm" method="post">
+		          <div class="form-group">
+		            <label for="template-name" class="form-control-label">Template name:</label>
+		            <input type="text" class="form-control" name="template-name" id="template-name" autocomplete="off" required />
+		          </div>
+		          <div class="form-group">
+		            <label for="template-content" class="form-control-label">Template content:</label>
+		            <textarea class="form-control" name="template-content" id="template-content" spellcheck="false" required></textarea>
+		          </div>
+		          <div class="form-group">
+		          	<span>Variables : </span><span class="variable">%firstName%</span>
+		          </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-primary" id="save_template">Save template</button>
+				      </div>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</body>
+</html>
